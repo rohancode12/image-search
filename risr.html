@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module risr</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>risr</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Chp%5Conedrive%5Cdesktop%5Crohanimagesearch%5Crohan_project%5Crisr.py">c:\users\hp\onedrive\desktop\rohanimagesearch\rohan_project\risr.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;coding:&nbsp;utf-8</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="cv2.html">cv2</a><br>
+<a href="faiss.html">faiss</a><br>
+<a href="tkinter.filedialog.html">tkinter.filedialog</a><br>
+</td><td width="25%" valign=top><a href="keras._tf_keras.keras.preprocessing.image.html">keras._tf_keras.keras.preprocessing.image</a><br>
+<a href="joblib.html">joblib</a><br>
+<a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+<a href="matplotlib.pyplot.html">matplotlib.pyplot</a><br>
+<a href="time.html">time</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-build_pq_index"><strong>build_pq_index</strong></a>(features, num_subspaces, subspace_dimension)</dt><dd><tt>Builds&nbsp;a&nbsp;Product&nbsp;Quantization&nbsp;(PQ)&nbsp;index&nbsp;using&nbsp;FAISS.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;features&nbsp;(np.ndarray):&nbsp;Matrix&nbsp;of&nbsp;feature&nbsp;vectors.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;num_subspaces&nbsp;(int):&nbsp;Number&nbsp;of&nbsp;subspaces&nbsp;for&nbsp;PQ.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;subspace_dimension&nbsp;(int):&nbsp;Dimension&nbsp;of&nbsp;each&nbsp;subspace.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;faiss.IndexPQ:&nbsp;Trained&nbsp;PQ&nbsp;index.</tt></dd></dl>
+ <dl><dt><a name="-display_similar_images"><strong>display_similar_images</strong></a>(indices, distances, data_directory, filenames)</dt><dd><tt>Displays&nbsp;the&nbsp;similar&nbsp;images&nbsp;along&nbsp;with&nbsp;their&nbsp;similarity&nbsp;distances.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;indices&nbsp;(list):&nbsp;List&nbsp;of&nbsp;indices&nbsp;of&nbsp;similar&nbsp;images.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;distances&nbsp;(list):&nbsp;List&nbsp;of&nbsp;distances&nbsp;corresponding&nbsp;to&nbsp;the&nbsp;indices.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;data_directory&nbsp;(str):&nbsp;Path&nbsp;to&nbsp;the&nbsp;dataset&nbsp;directory.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;filenames&nbsp;(list):&nbsp;List&nbsp;of&nbsp;image&nbsp;filenames&nbsp;in&nbsp;the&nbsp;dataset.</tt></dd></dl>
+ <dl><dt><a name="-extract_features"><strong>extract_features</strong></a>(img_path)</dt><dd><tt>Extracts&nbsp;feature&nbsp;vectors&nbsp;from&nbsp;an&nbsp;image&nbsp;using&nbsp;the&nbsp;ResNet50&nbsp;model.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;img_path&nbsp;(str):&nbsp;Path&nbsp;to&nbsp;the&nbsp;input&nbsp;image.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;np.ndarray:&nbsp;Flattened&nbsp;feature&nbsp;vector.</tt></dd></dl>
+ <dl><dt><a name="-extract_features_from_folder"><strong>extract_features_from_folder</strong></a>(folder_path)</dt><dd><tt>Extracts&nbsp;features&nbsp;for&nbsp;all&nbsp;images&nbsp;in&nbsp;a&nbsp;folder.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;folder_path&nbsp;(str):&nbsp;Path&nbsp;to&nbsp;the&nbsp;folder&nbsp;containing&nbsp;images.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;np.ndarray:&nbsp;Array&nbsp;of&nbsp;feature&nbsp;vectors&nbsp;for&nbsp;all&nbsp;images.</tt></dd></dl>
+ <dl><dt><a name="-find_similar_images"><strong>find_similar_images</strong></a>(query_feature, k=5)</dt><dd><tt>Finds&nbsp;the&nbsp;top&nbsp;K&nbsp;most&nbsp;similar&nbsp;images&nbsp;using&nbsp;KD-Tree.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;query_feature&nbsp;(np.ndarray):&nbsp;Feature&nbsp;vector&nbsp;of&nbsp;the&nbsp;query&nbsp;image.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;k&nbsp;(int):&nbsp;Number&nbsp;of&nbsp;similar&nbsp;images&nbsp;to&nbsp;retrieve.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Tuple[np.ndarray,&nbsp;np.ndarray]:&nbsp;Indices&nbsp;and&nbsp;distances&nbsp;of&nbsp;the&nbsp;K&nbsp;nearest&nbsp;neighbors.</tt></dd></dl>
+ <dl><dt><a name="-get_image_filenames"><strong>get_image_filenames</strong></a>(data_directory)</dt><dd><tt>Maps&nbsp;image&nbsp;indices&nbsp;to&nbsp;filenames.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;data_directory&nbsp;(str):&nbsp;Path&nbsp;to&nbsp;the&nbsp;folder&nbsp;containing&nbsp;images.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;List[str]:&nbsp;Sorted&nbsp;list&nbsp;of&nbsp;image&nbsp;filenames.</tt></dd></dl>
+ <dl><dt><a name="-main"><strong>main</strong></a>()</dt><dd><tt>Main&nbsp;function&nbsp;to&nbsp;extract&nbsp;features,&nbsp;build&nbsp;the&nbsp;PQ&nbsp;index,&nbsp;and&nbsp;process&nbsp;a&nbsp;query&nbsp;image.</tt></dd></dl>
+ <dl><dt><a name="-process_query_image"><strong>process_query_image</strong></a>(k=5, data_directory='path_to_images')</dt><dd><tt>Processes&nbsp;a&nbsp;query&nbsp;image&nbsp;to&nbsp;find&nbsp;and&nbsp;display&nbsp;similar&nbsp;images.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;k&nbsp;(int):&nbsp;Number&nbsp;of&nbsp;similar&nbsp;images&nbsp;to&nbsp;retrieve.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;data_directory&nbsp;(str):&nbsp;Path&nbsp;to&nbsp;the&nbsp;directory&nbsp;containing&nbsp;the&nbsp;image&nbsp;dataset.</tt></dd></dl>
+ <dl><dt><a name="-search_pq_index"><strong>search_pq_index</strong></a>(pq_index, query_feature, k=5)</dt><dd><tt>Searches&nbsp;for&nbsp;similar&nbsp;images&nbsp;in&nbsp;the&nbsp;PQ&nbsp;index.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pq_index&nbsp;(faiss.IndexPQ):&nbsp;Trained&nbsp;PQ&nbsp;index.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;query_feature&nbsp;(np.ndarray):&nbsp;Feature&nbsp;vector&nbsp;of&nbsp;the&nbsp;query&nbsp;image.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;k&nbsp;(int):&nbsp;Number&nbsp;of&nbsp;nearest&nbsp;neighbors&nbsp;to&nbsp;retrieve.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(list,&nbsp;list):&nbsp;Indices&nbsp;and&nbsp;distances&nbsp;of&nbsp;the&nbsp;top-k&nbsp;similar&nbsp;images.</tt></dd></dl>
+ <dl><dt><a name="-select_query_image"><strong>select_query_image</strong></a>()</dt><dd><tt>Opens&nbsp;a&nbsp;file&nbsp;dialog&nbsp;to&nbsp;select&nbsp;a&nbsp;query&nbsp;image.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;Path&nbsp;to&nbsp;the&nbsp;selected&nbsp;image.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>base_model</strong> = &lt;Functional name=resnet50, built=True&gt;<br>
+<strong>clusters</strong> = array([1, 2, 6, 6, 6, 1, 9, 6, 7, 7, 4, 4, 4, 4,... 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 1, 0])<br>
+<strong>data_directory</strong> = r'C:\Users\hp\Downloads\archive (5)\data\Apparel\Girls\Images\images_with_product_ids'<br>
+<strong>features</strong> = array([[0.0000000e+00, 6.7029319e+00, 2.1903025e...   1.5596930e-03, 1.5481122e-01]], dtype=float32)<br>
+<strong>features_reduced</strong> = array([[-11.913966  ,  -7.164556  ,  -0.8249471 ...       4.2764263 ,   0.6373491 ]], dtype=float32)<br>
+<strong>features_scaled</strong> = array([[-0.5556708 ,  2.2048643 ,  0.09646529, ....       -0.6130096 , -0.7872608 ]], dtype=float32)<br>
+<strong>image_features</strong> = array([[0.0000000e+00, 6.7029319e+00, 2.1903025e...   1.5596930e-03, 1.5481122e-01]], dtype=float32)<br>
+<strong>image_paths</strong> = [r'C:\Users\hp\Downloads\archive (5)\data\Apparel\Girls\Images\images_with_product_ids\10672.jpg', r'C:\Users\hp\Downloads\archive (5)\data\Apparel\Girls\Images\images_with_product_ids\12849.jpg', r'C:\Users\hp\Downloads\archive (5)\data\Apparel\Girls\Images\images_with_product_ids\13258.jpg', r'C:\Users\hp\Downloads\archive (5)\data\Apparel\Girls\Images\images_with_product_ids\13341.jpg', r'C:\Users\hp\Downloads\archive (5)\data\Apparel\Girls\Images\images_with_product_ids\16803.jpg', r'C:\Users\hp\Downloads\archive (5)\data\Apparel\Girls\Images\images_with_product_ids\16804.jpg', r'C:\Users\hp\Downloads\archive (5)\data\Apparel\Girls\Images\images_with_product_ids\16805.jpg', r'C:\Users\hp\Downloads\archive (5)\data\Apparel\Girls\Images\images_with_product_ids\16806.jpg', r'C:\Users\hp\Downloads\archive (5)\data\Apparel\Girls\Images\images_with_product_ids\17609.jpg', r'C:\Users\hp\Downloads\archive (5)\data\Apparel\Girls\Images\images_with_product_ids\17612.jpg', r'C:\Users\hp\Downloads\archive (5)\data\Apparel\Girls\Images\images_with_product_ids\17618.jpg', r'C:\Users\hp\Downloads\archive (5)\data\Apparel\Girls\Images\images_with_product_ids\17619.jpg', r'C:\Users\hp\Downloads\archive (5)\data\Apparel\Girls\Images\images_with_product_ids\17620.jpg', r'C:\Users\hp\Downloads\archive (5)\data\Apparel\Girls\Images\images_with_product_ids\17621.jpg', r'C:\Users\hp\Downloads\archive (5)\data\Apparel\Girls\Images\images_with_product_ids\18166.jpg', r'C:\Users\hp\Downloads\archive (5)\data\Apparel\Girls\Images\images_with_product_ids\18167.jpg', r'C:\Users\hp\Downloads\archive (5)\data\Apparel\Girls\Images\images_with_product_ids\18168.jpg', r'C:\Users\hp\Downloads\archive (5)\data\Apparel\Girls\Images\images_with_product_ids\18169.jpg', r'C:\Users\hp\Downloads\archive (5)\data\Apparel\Girls\Images\images_with_product_ids\18171.jpg', r'C:\Users\hp\Downloads\archive (5)\data\Apparel\Girls\Images\images_with_product_ids\18172.jpg', ...]<br>
+<strong>img_path</strong> = r'C:\Users\hp\Downloads\archive (5)\data\Apparel\Girls\Images\images_with_product_ids\9927.jpg'<br>
+<strong>kd_tree</strong> = &lt;sklearn.neighbors._kd_tree.KDTree object&gt;<br>
+<strong>kmeans</strong> = KMeans(n_clusters=10, random_state=42)<br>
+<strong>lsh_model</strong> = NearestNeighbors(metric='euclidean')<br>
+<strong>model</strong> = &lt;Functional name=functional_3, built=True&gt;<br>
+<strong>pca</strong> = PCA(n_components=50)<br>
+<strong>reduced_features</strong> = array([[-1.19139557e+01, -7.16457272e+00, -8.248...4.23604155e+00,  2.15022057e-01]], dtype=float32)<br>
+<strong>scaled_features</strong> = array([[-0.5556708 ,  2.2048643 ,  0.09646529, ....       -0.6130096 , -0.7872608 ]], dtype=float32)<br>
+<strong>scaler</strong> = StandardScaler()</td></tr></table>
+</body></html>
